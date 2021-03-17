@@ -4,8 +4,8 @@ class Movie < ActiveRecord::Base
     %w(G PG PG-13 R)
   end
   
-  def self.filter_by_ratings(selected)
+  def self.filter_and_sort(selected, sorting)
     #Movie.where(:ratings => selected)
-    Movie.where(rating:selected)
+    Movie.where(rating:selected).order(sorting)
   end
 end
